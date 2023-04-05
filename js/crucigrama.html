@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crucigrama en JavaScript</title>
+	<style>
+		.crossword {
+			display: grid;
+			grid-template-rows: repeat(5, 1fr);
+			grid-template-columns: repeat(5, 1fr);
+			grid-gap: 2px;
+			background-color: #eee;
+			padding: 10px;
+		}
+		
+		.crossword input {
+			width: 100%;
+			height: 100%;
+			font-size: 1.5rem;
+			text-align: center;
+			border: none;
+			outline: none;
+			background-color: transparent;
+		}
+		
+		.crossword input:focus {
+			background-color: #fff;
+		}
+		
+		.crossword .across {
+			background-color: #f2f2f2;
+		}
+		
+		.crossword .down {
+			background-color: #d9d9d9;
+		}
+	</style>
+</head>
+<body>
+	<div class="crossword">
+		<input type="text" data-row="1" data-col="1" data-dir="across" data-answer="car" maxlength="1" />
+		<input type="text" data-row="1" data-col="2" data-dir="across" data-answer="cat" maxlength="1" />
+		<input type="text" data-row="1" data-col="3" data-dir="across" data-answer="dog" maxlength="1" />
+		<input type="text" data-row="2" data-col="1" data-dir="down" data-answer="cup" maxlength="1" />
+		<input type="text" data-row="3" data-col="1" data-dir="down" data-answer="hat" maxlength="1" />
+		<input type="text" data-row="4" data-col="1" data-dir="down" data-answer="pen" maxlength="1" />
+	</div>
+	<script>
+		const inputs = document.querySelectorAll(".crossword input");
+		let currentInput = null;
+		
+		inputs.forEach(input => {
+			input.addEventListener("click", function() {
+				currentInput = input;
+			});
+			input.addEventListener("input", function() {
+				const row = Number(input.dataset.row);
+				const col = Number(input.dataset.col);
+				const dir = input.dataset.dir;
+				const answer = input.dataset.answer;
+				const value = input.value.toLowerCase();
+				if (value === answer) {
+					if (dir === "across") {
+						const nextInput = document.querySelector(`.crossword input[data-row="${row}"][data-col="${col+1}"][data-dir="across"]`);
+						if (nextInput) {
+							currentInput = nextInput;
+							nextInput.focus();
+						}
+					} else if (dir === "down") {
+						const nextInput = document.querySelector(`.crossword input[data-row="${row+1}"][data-col="${col}"][data-dir="down"]`);
+						if (nextInput) {
+							currentInput = nextInput;
+							nextInput.focus();
+						}
+					}
+				} else {
+					input.value = "";
+				}
+			});
+		});
+		
+ </script>

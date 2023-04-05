@@ -1,0 +1,28 @@
+<fieldset>
+  <legend> suma de dos numeros</legend>
+  Escribe un primer numero
+  <input type="number" id="num1"><br>
+  escribe un segundo numero
+<input type="number" id="num2"></fieldset>
+
+<input type="button" value="Sumar"   id="boton">
+
+<script>
+// esta funcion es la que se va a activar cuando el usuario precione el boton Sumar
+document.getElementById("boton").onclick=sumar;
+
+function sumar() {
+  var num1 = document.getElementById("num1").value;
+  var num2 = document.getElementById("num2").value;
+  let suma = parseInt(num1 ) + parseInt(num2);
+ 
+
+
+document.getElementById(suma).innerHTML = '<input value="'  +
+    '" class="form-control" type="placeholder" name="suma" id="suma" style="background-color:#a6f7a6;">';
+
+}
+                 
+</script>
+<input type="text" id="suma"  name="suma">
+ 

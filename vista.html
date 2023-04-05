@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+captura de valores desde los input 
+<input type="date" name="" id="hora">
+    <input type="text" id="name"><br><br>
+    <input type="text" id="id">
+<input type="text" id="id1">
+<br><br>
+<input type="password" id="id2">
+<br><br>
+<input type="checkbox" name="radio" id="id3">
+<label for="id3"> check box</label>
+
+<input type="radio" name="radio" id="id4">
+<label for="id4"> radio 1</label>
+<input type="radio" name="radio" id="id5">
+<label for="id5"> radio 2</label>
+<br><br>
+
+<select  id="id6">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+
+</select>
+<br><br>
+se crea el evento onclick
+<button onclick="mostrar_input()">mostrar informacion</button>
+    <script>
+        // se crea la funcion mostrar input
+        function mostrar_input(){
+            // se captura el elemento
+            let hora=document.getElementById("hora").value;
+            let name=document.getElementById("name").value;
+            let id=document.getElementById("id").value;
+            let id1=document.getElementById("id1").value;
+            let id2=document.getElementById("id2").value;
+            let id3=document.getElementById("id3").checked;
+            let id4=document.getElementById("id4").checked;
+            let id5=document.getElementById("id5").checked;
+            let id6=document.getElementById("id6").value;
+          
+            // se inicializa la variable en 0 en entero
+let id3_int = 0;
+if (id3) {
+    // si ha sido marcado  que lo inicialize en 1
+    id3_int=1;
+}
+// se inicializa en 0
+let radio_int=0;
+if (id4) {
+    // si no esta marcado que le de el valor del 1 radio button
+    radio_int=1;
+    
+}if (id5) {
+    // si no esta marcado que devuelva el valor del radio 2
+    radio_int=2;
+    
+}
+// se imprime en pantalla 
+console.log(hora);
+         console.log(name);
+         console.log(id);
+         console.log(id1);
+         console.log(id2);
+         console.log("checkbox: "+id3_int);
+         console.log("radio:"+radio_int);
+         console.log(id6);
+        }
+    </script>
+</body>
+</html>

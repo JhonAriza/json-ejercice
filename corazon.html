@@ -1,0 +1,36 @@
+<canvas id="heart-canvas" width="200" height="200"></canvas>
+<h1 style="text-align: center;">Diego  pongase a Studiar </h1>
+ 
+<style>canvas {
+    display: block;
+    margin: 0 auto;
+  }
+  </style>
+  <script>const canvas = document.getElementById("heart-canvas");
+    const ctx = canvas.getContext("2d");
+    const cx = canvas.width / 2;
+    const cy = canvas.height / 2;
+    let scale = 1;
+    
+    function drawHeart() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - 40 * scale);
+      ctx.bezierCurveTo(cx + 60 * scale, cy - 80 * scale, cx + 90 * scale, cy - 10 * scale, cx, cy + 50 * scale);
+      ctx.bezierCurveTo(cx - 90 * scale, cy - 10 * scale, cx - 60 * scale, cy - 80 * scale, cx, cy - 40 * scale);
+      ctx.fillStyle = "indigo";
+      ctx.fill();
+    
+      scale += 0.01;
+      if (scale >= 1.2) {
+        scale = 1;
+      }
+    
+      requestAnimationFrame(drawHeart);
+    }
+    
+    drawHeart();
+    </script>
+
+<canvas id="heart-canvas" width="200" height="200"></canvas>

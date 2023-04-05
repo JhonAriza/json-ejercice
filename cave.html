@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="name">
+    <br><br>
+    <input type="text" id="lastname">
+    <label for="id1">radio 1</label>
+    <input type="radio" name="radio" id="id1">
+    <label for="radio">radio2</label>
+    <input type="radio" name="radio" id="id2">
+    <button onclick="recoger()">recoger datos</button>
+</body>
+</html>
+<script>
+    function recoger() {
+        let name = document.getElementById("name").value;
+        const lastname = document.getElementById("lastname").value;
+        const id1 = document.getElementById("id1").checked;
+        const id2 = document.getElementById("id2").checked;
+         let radio_int=0;
+        if (id1) {
+            radio_int=1;
+        }
+ 
+        if (id2) {
+            radio_int=2;
+        }
+
+        console.log("su nombre robado es+ "+name);
+      console.log("el apellido de el "+ lastname);
+      console.log("radio:"+radio_int);
+ 
+    }
+</script>
+ 
+ 
